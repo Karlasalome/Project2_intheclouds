@@ -1,6 +1,7 @@
-# Project 2 : in the clouds : Do you go to the land down unda?
+# Sometimes I Feel the Earth Moving
 
-![landinginAustralia](https://user-images.githubusercontent.com/46768393/63219146-c55cca00-c139-11e9-8c73-095053218706.jpg)
+![earthquake_image01](https://user-images.githubusercontent.com/46768393/63475191-e3803e00-c449-11e9-8b70-a85484a932f7.jpg)
 
 
-## Visualizing Australia's Airport Passenger Movements Year over Year Since 1985, and Total Airport Passenger Movement for Australia
+
+## Visualizing world earthquakes
