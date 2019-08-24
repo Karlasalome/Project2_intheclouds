@@ -6,11 +6,13 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
+from flask import render_template
 
 
 app = Flask(__name__)
 
 @app.route('/')
 def Earthquakes():
-    return "project 2 Earthquakes"
+    name='Earthquakes'
+    return render_template('file.html', name=name)
     
