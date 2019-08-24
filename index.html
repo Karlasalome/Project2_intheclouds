@@ -1,99 +1,75 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Reverse Geocoding</title>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #floating-panel {
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
-      #floating-panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        width: 350px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-      #latlng {
-        width: 225px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="floating-panel">
-      {% for log, lat in my_data %}
-      [,]
-​
-      <input id="latlng" type="text" value="{{log}}, {{lat}}">
-      {% endfor %}
-      <input id="submit" type="button" value="Reverse Geocode">
-    </div>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: 40.731, lng: -73.997}
-        });
-        var geocoder = new google.maps.Geocoder;
-        var infowindow = new google.maps.InfoWindow;
-​
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeLatLng(geocoder, map, infowindow);
-        });
-      }
-​
-      function geocodeLatLng(geocoder, map, infowindow) {
-        var input = document.getElementById('latlng').value;
-        var latlngStr = input.split(',', 2);
-        var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-        geocoder.geocode({'location': latlng}, function(results, status) {
-          if (status === 'OK') {
-            if (results[0]) {
-              map.setZoom(11);
-              var marker = new google.maps.Marker({
-                position: latlng,
-                map: map
-              });
-              infowindow.setContent(results[0].formatted_address);
-              infowindow.open(map, marker);
-            } else {
-              window.alert('No results found');
-            }
-          } else {
-            window.alert('Geocoder failed due to: ' + status);
-          }
-        });
-      }
-    </script>
-    <script async defer
-    src="KEY HERE">
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Citi Bike</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="#filter-btn1" 
+      <select id="#filter-btn1">
+        <option value="0 to 2">0 to 2</option>
+        <option value="2 to 4">2 to 4</option>
+        <option value="4 to 6">4 to 6</option>
+        <option value="6 to 8">6 to 8</option>
+<     </select>
+  <div id="#filter-btn2" 
+      <select id="#filter-btn2">
+        <option value="1965">1965</option>
+
+-- PLEASE CONTINUE ADDING DATES TO CREATE MENU
+
+
+
+
+
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+<     </select>
+
+  <!-- The div that holds our map -->
+  <div id="map-id"></div>
+
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+  <!-- MomentJS -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+
+  <!-- Icons -->
+  <script src="js/leaflet.extra-markers.min.js"></script>
+
+  <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+  <!-- API Key -->
+  <script type="text/javascript" src="js/config.js"></script>
+
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="js/logic.js"></script>
+
+</body>
+
 </html>
