@@ -1,5 +1,5 @@
-import numpy as np
 
+#import numpy as np
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -11,6 +11,6 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return "hello, world"
+def Earthquakes():
+    return "project 2 Earthquakes"
     
