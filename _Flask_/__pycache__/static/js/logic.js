@@ -95,7 +95,7 @@ function buildmap(sample) {
 
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup(feature.properties.year + ", " + feature.properties.country ", "+ feature.properties.magnitude);
+      layer.bindPopup(feature.properties.year + ", " + feature.properties.country + ", "+ feature.properties.magnitude);
     }
   }).addTo(myMap);
 
@@ -131,5 +131,4 @@ function buildmap(sample) {
         icon: icons["circle"]
       });
       newMarker.addTo(myMap);
-
-}});
+});
