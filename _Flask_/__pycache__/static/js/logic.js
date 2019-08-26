@@ -132,4 +132,4 @@ function buildmap(sample) {
       });
       newMarker.addTo(myMap);
 
-});
+}});
